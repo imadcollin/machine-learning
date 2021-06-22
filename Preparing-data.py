@@ -31,3 +31,19 @@ print("\nNormalized data L2:\n", Data_normed)
 ### Normalized with precision
 set_printoptions(precision=2)
 print("\nNormalized data precision:\n", Data_normed)
+
+# Binarization
+from sklearn.preprocessing import Binarizer
+
+binary = Binarizer(threshold=0.5).fit(data)
+binary_data = binary.transform(data)
+print("\nBinarized data:\n", binary_data)
+
+# Sttandardization
+from sklearn.preprocessing import StandardScaler
+
+data_scaler = StandardScaler().fit(data)
+rescaled_Data = data_scaler.transform(data)
+print("\nStandaarized data:\n", rescaled_Data)
+
+# %%
