@@ -46,4 +46,21 @@ data_scaler = StandardScaler().fit(data)
 rescaled_Data = data_scaler.transform(data)
 print("\nStandaarized data:\n", rescaled_Data)
 
+# Encoder
+# %%
+import numpy as np
+from sklearn import preprocessing
+
+labels = ['1', '2', '2', '3', '4', '4', '5', '5', '6']
+encoder = preprocessing.LabelEncoder()
+encoder.fit(labels)
+test_label = ['1', '2', '5']
+encode_values = encoder.transform(test_label)
+print("\nLabels: ", test_label)
+print("\nEncoded Values", list(encode_values))
+
+# Decoder
+decode_list = encoder.inverse_transform([0, 1, 4])
+print("\nDecoded Values", list(decode_list))
+
 # %%
