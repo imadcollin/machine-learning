@@ -41,3 +41,22 @@ model.fit(x, y)
 print("\nModel\n", model.feature_importances_)
 
 # %%
+from pandas import read_csv
+from sklearn.decomposition import PCA
+#Principal Component Analysis
+names = [
+    'preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'
+]
+data = read_csv('diabetes-india.csv', names=names)
+
+print("\Values:\n", data[:10])
+array = data.values
+x = array[:, 0:8]
+y = array[:, 8]
+
+pca = PCA(n_components=3)
+fit = pca.fit(x)
+print("\nVariance:", fit.explained_variance_ratio_)
+print("\nfit: %s", fit.components_)
+
+# %%
